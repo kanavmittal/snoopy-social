@@ -1,0 +1,22 @@
+{
+   "compilerOptions": {
+      "lib": [
+         "es5",
+         "es6"
+      ],
+      "target": "es5",
+      "noImplicitAny":true,
+      "strictFunctionTypes":true,
+      "strictNullChecks": true,
+      "strictBindCallApply": true,
+      "noImplicitThis": true,
+      "skipLibCheck": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "./build",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "sourceMap": true,
+      "esModuleInterop": true
+   }
+}
