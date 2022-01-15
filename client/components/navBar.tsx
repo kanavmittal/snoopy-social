@@ -2,7 +2,8 @@
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
-
+import SnoppyLogo from "../images/Snoopy-text.svg";
+import Link from "next/link";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -12,11 +13,15 @@ export default function NavBar() {
     <Disclosure as="nav" className="bg-white shadow-lg">
       {({ open }) => (
         <>
-          <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+          <div className="container mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="flex-3 flex w-1/3 items-center justify-center sm:items-stretch sm:justify-start pr-8">
                 <div className="flex-shrink-0 flex items-center">
-                  <span className="text-xl font-semibold">Snoopy</span>
+                  <Link href="/">
+                    <a>
+                      <SnoppyLogo className=""></SnoppyLogo>
+                    </a>
+                  </Link>
                 </div>
               </div>
 
