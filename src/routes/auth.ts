@@ -49,15 +49,15 @@ const login = async (req:Request, res: Response) => {
     const {username, password } = req.body
     try {
         let errors: any ={}
-        if(isEmpty(username) || isEmpty(password)) errors.field="Fields must not be empty"
+        if(isEmpty(username) || isEmpty(password)) errors.username="Fields must not be empty"
         if(Object.keys(errors).length>0){
             return res.status(400).json(errors)
         }
        const user= await User.findOne({username})
-       if(!user) return res.status(404).json({error:'User Not found'})
+       if(!user) return res.status(404).json({username:'Incorrect Username or Password'})
        const passwordMatch = await bcrypt.compare(password,user.password)
        if(!passwordMatch){
-           return res.status(401).json({error:'Incorrect Password'})
+           return res.status(401).json({username:'Incorrect Username or Password'})
        }
        const token= jwt.sign({username},process.env.JWT_SECRET!)
        res.set('Set-Cookie', cookie.serialize('token',token,{
@@ -69,7 +69,7 @@ const login = async (req:Request, res: Response) => {
        return res.json(token);
     } catch (error) {
         console.log(error)
-        return res.status(500).json({error: "Something went Wrong"})
+        return res.status(500).json({errors: "Something went Wrong"})
     }
 }
 
