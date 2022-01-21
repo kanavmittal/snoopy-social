@@ -9,10 +9,10 @@ function MyApp({ Component, pageProps }) {
   const authRoutes = ["/register", "/login"];
   const authRoute = authRoutes.includes(pathname);
   return (
-    <>
+    <div className="relative">
       {!authRoute && <NavBar></NavBar>}
       <Component {...pageProps} />
-    </>
+    </div>
   );
 }
 

@@ -6,7 +6,7 @@ export default function MenuBar() {
     chats: false,
   };
   return (
-    <div className="h-screen w-2/12 ">
+    <div className="h-full w-2/12 ">
       <div className="flex flex-col space-y-4 mt-8">
         <span className="font-medium px-8">MENU</span>
         <div

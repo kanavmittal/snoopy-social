@@ -5,8 +5,8 @@ import ThreadsMain from "../components/threadsMain";
 import HotRightBar from "../components/hotRightBar.tsx";
 export default function Home() {
   return (
-    <div className="container mx-auto px-2 sm:px-6 lg:px-8">
-      <div className="flex flex-row">
+    <div className="container mx-auto px-2 sm:px-6 lg:px-8 pt-16 h-screen">
+      <div className="flex flex-row h-full">
         <MenuBar></MenuBar>
         <ThreadsMain></ThreadsMain>
         <HotRightBar></HotRightBar>
