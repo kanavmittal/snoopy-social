@@ -8,7 +8,7 @@ export default function MenuBar() {
   return (
     <div className="h-full w-2/12 ">
       <div className="flex flex-col space-y-4 mt-8">
-        <span className="font-medium px-8">MENU</span>
+        <span className="font-bold text-xl px-8">MENU</span>
         <div
           className={
             "flex space-x-2 py-2 px-2 text-gray-600 hover:bg-blue-200 hover:text-black " +

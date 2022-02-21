@@ -11,6 +11,7 @@ dotenv.config()
 import authRoutes from './routes/auth'
 import postRoutes from './routes/posts'
 import subsRoutes from './routes/subs'
+import utilsRoutes from './routes/Utils'
 const app = express()
 app.use(express.json())
 app.use(morgan('dev'))
@@ -24,10 +25,11 @@ app.use(Cors({
 app.get('/',(req,res) => {
     res.send('Hello World');
 })
+
 app.use('/api/auth',authRoutes)
 app.use('/api/post',postRoutes)
 app.use('/api/subs',subsRoutes)
-
+app.use('/api/utils',utilsRoutes)
 app.listen(5001, async() => {
     console.log('Server running at port 5001')
     try {

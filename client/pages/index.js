@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import MenuBar from "../components/menuBar.tsx";
-import ThreadsMain from "../components/threadsMain";
+import ThreadsMain from "../components/postsAll";
 import HotRightBar from "../components/hotRightBar.tsx";
 export default function Home() {
   return (

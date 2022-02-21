@@ -1,12 +1,15 @@
 import dayjs, { Dayjs } from "dayjs";
 import { Post } from "../types";
-
+import Link from "next/link";
+import moment from "moment";
+interface perPostProps {
+  post: Post;
+}
 export default function ParentPost({ post }) {
-  console.log(post);
   return (
     <div>
-      <div className=" mx-8 h-56 main-post-shadow hover:shadow-xl">
-        <div className="flex flex-row h-full">
+      <div className=" mx-8 h-56 hover:shadow-xl border-none border-white">
+        <div className="flex flex-row h-full bg-white">
           {/* vote section */}
           <div className="flex justify-start  w-1/12">
             <div className="flex flex-col space-y-4 w-full mt-4 items-center">
@@ -45,9 +48,18 @@ export default function ParentPost({ post }) {
               </div>
             </div>
           </div>
-          <div className="flex flex-col  w-11/12 h-full">
-            <div className="flex w-full h-2/6  items-center ">
-              <span className="px-4 font-bold text-xl">{post.title}</span>
+          <div className="flex flex-col w-11/12 h-full">
+            <div className="flex w-full h-1/6 items-end">
+              <div>
+                <Link href={`/${post.subName}`}>
+                  <a>
+                    <span className="pl-4 font-normal text-xl text-blue-800">
+                      {post.subName}
+                    </span>
+                  </a>
+                </Link>
+              </div>
+              <span className="pl-2 font-bold text-2xl">{post.title}</span>
             </div>
             <div className="h-3/6 pl-4 pr-4">
               <span className="text-gray-700">{post.body}</span>
@@ -55,9 +67,9 @@ export default function ParentPost({ post }) {
             <div className="flex flex-row w-full pl-4 pr-4 items-center justify-between h-2/6">
               <div className="flex  space-x-2">
                 <div className="">image</div>
-                <div className="text-gray-500">Posted By Akhil Meheta</div>
+                <div className="text-gray-500">Posted By {post.username}</div>
                 <div className="text-gray-500">
-                  {dayjs(post.createAt).isValid}
+                  {moment(post.createAt).fromNow()}
                 </div>
               </div>
               <div className="flex space-x-2">

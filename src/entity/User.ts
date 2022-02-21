@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt'
 import { Exclude } from "class-transformer";
 import bEntity from './Entity'
 import { Post } from "./Post";
+import Vote from "./Vote";
 @Entity('users')
 export default  class User extends bEntity{
     constructor(user: Partial<User>){
@@ -28,6 +29,9 @@ export default  class User extends bEntity{
 
     @OneToMany(()=> Post, post=> post.user)
     posts: Post[]    
+
+    @OneToMany(()=>Vote, Vote=> Vote.user)
+    votes:Vote[]
     @BeforeInsert()
    async hashPass() {
        this.password= await bcrypt.hash(this.password,6)

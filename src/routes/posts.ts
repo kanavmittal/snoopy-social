@@ -23,9 +23,8 @@ const CreatePost = async (req: Request, res:Response) => {
 
 const getPosts = async (req:Request, res: Response)=>{
     try {
-        const posts= await Post.find({
-            order: {createAt: "DESC"}
-        })
+        const posts= await Post.find({relations:['comments','vote'],
+            order: {createAt: "DESC"}})
         return res.json(posts)
     } catch (error) {
        console.log(error)
